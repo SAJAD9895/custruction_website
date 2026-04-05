@@ -1,8 +1,8 @@
 import { useRef } from 'react'
 import { Link } from 'react-router-dom'
 import { motion, useInView } from 'framer-motion'
-import residentialImg from '../assets/images/residential.png'
 import heroImg from '../assets/images/hero.png'
+import residentialImg from '../assets/images/residential.png'
 import './Services.css'
 
 const fadeUp = {
@@ -11,212 +11,178 @@ const fadeUp = {
 }
 
 const stagger = {
-  visible: { transition: { staggerChildren: 0.15 } }
+  visible: { transition: { staggerChildren: 0.1 } }
 }
 
-function AnimatedSection({ children, className = '' }) {
+function AnimatedSection({ children, className = '', id = '' }) {
   const ref = useRef(null)
-  const inView = useInView(ref, { once: true, margin: '-80px' })
+  const inView = useInView(ref, { once: true, margin: '-60px' })
   return (
-    <motion.section ref={ref} className={className} initial="hidden" animate={inView ? 'visible' : 'hidden'} variants={stagger}>
+    <motion.section 
+      ref={ref} 
+      className={className} 
+      id={id}
+      initial="hidden" 
+      animate={inView ? 'visible' : 'hidden'} 
+      variants={stagger}
+    >
       {children}
     </motion.section>
   )
 }
 
-const servicesData = [
+const servicesItems = [
   {
-    id: 'residential',
-    label: 'Residential',
     title: 'Residential Construction',
-    subtitle: 'Your dream home, crafted with precision',
-    image: residentialImg,
-    description: 'We specialize in building custom homes that reflect your personality and lifestyle. From contemporary villas to traditional Kerala-style homes, our team brings decades of expertise to create spaces where memories are made.',
-    features: [
-      {
-        icon: (
-          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round"><path d="M3 9l9-7 9 7v11a2 2 0 01-2 2H5a2 2 0 01-2-2z"/><polyline points="9 22 9 12 15 12 15 22"/></svg>
-        ),
-        title: 'Custom Home Design',
-        desc: 'Personalized architectural designs that blend aesthetics with functionality for your unique lifestyle.',
-      },
-      {
-        icon: (
-          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round"><path d="M14.7 6.3a1 1 0 000 1.4l1.6 1.6a1 1 0 001.4 0l3.77-3.77a6 6 0 01-7.94 7.94l-6.91 6.91a2.12 2.12 0 01-3-3l6.91-6.91a6 6 0 017.94-7.94l-3.76 3.76z"/></svg>
-        ),
-        title: 'Home Renovation',
-        desc: 'Transform your existing home with expert renovation services — from kitchen makeovers to complete overhauls.',
-      },
-      {
-        icon: (
-          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round"><rect x="2" y="3" width="20" height="14" rx="2"/><line x1="8" y1="21" x2="16" y2="21"/><line x1="12" y1="17" x2="12" y2="21"/></svg>
-        ),
-        title: 'Modern Designs',
-        desc: 'Cutting-edge contemporary designs incorporating smart home technology and sustainable building practices.',
-      },
-    ],
+    description: 'Conco Builders specializes in delivering high-quality, innovative residential construction solutions, offering custom home building, remodeling, and renovation services that cater to the unique needs and preferences of each homeowner, ensuring exceptional craftsmanship, sustainability, and customer satisfaction every step of the way.',
+    icon: (
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round"><path d="M3 9l9-7 9 7v11a2 2 0 01-2 2H5a2 2 0 01-2-2z"/><polyline points="9 22 9 12 15 12 15 22"/></svg>
+    )
   },
   {
-    id: 'commercial',
-    label: 'Commercial',
-    title: 'Commercial & Industrial',
-    subtitle: 'Building spaces that drive business growth',
-    image: heroImg,
-    description: 'From office complexes to industrial facilities, we deliver commercial construction projects that combine functionality with impressive design. Our end-to-end approach ensures seamless execution from concept to completion.',
-    features: [
-      {
-        icon: (
-          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round"><rect x="2" y="7" width="20" height="14" rx="2"/><path d="M16 7V5a2 2 0 00-2-2h-4a2 2 0 00-2 2v2"/><line x1="12" y1="12" x2="12" y2="12"/></svg>
-        ),
-        title: 'Complete Project Management',
-        desc: 'From planning and permits to construction and handover — we handle every aspect with expert precision.',
-      },
-      {
-        icon: (
-          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg>
-        ),
-        title: 'Quality & Safety First',
-        desc: 'Rigorous quality controls and safety standards ensure every project meets the highest industry benchmarks.',
-      },
-      {
-        icon: (
-          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg>
-        ),
-        title: 'Efficiency & Timeliness',
-        desc: 'Optimized workflows and experienced teams ensure on-schedule delivery without compromising quality.',
-      },
-    ],
+    title: 'Commercial & Industrial Construction',
+    description: 'We excel in commercial and industrial construction, providing comprehensive services from project planning and design to execution and completion, ensuring that each project meets the highest standards of quality and efficiency. Our experienced team is dedicated to delivering tailored solutions that enhance operational performance and drive business success.',
+    icon: (
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round"><rect x="2" y="7" width="20" height="14" rx="2"/><path d="M16 7V5a2 2 0 00-2-2h-4a2 2 0 00-2 2v2"/><line x1="12" y1="12" x2="12" y2="12"/></svg>
+    )
   },
   {
-    id: 'land',
-    label: 'Land Development',
     title: 'Land Development',
-    subtitle: 'Creating premium lifestyle destinations',
-    image: residentialImg,
-    description: 'We transform raw land into thriving communities. Our land development expertise covers everything from gated villa projects to comprehensive township planning, creating environments where families flourish.',
-    features: [
-      {
-        icon: (
-          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0118 0z"/><circle cx="12" cy="10" r="3"/></svg>
-        ),
-        title: 'Gated Communities',
-        desc: 'Secure, well-planned gated communities with modern amenities, landscaped gardens, and quality infrastructure.',
-      },
-      {
-        icon: (
-          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round"><path d="M3 9l9-7 9 7v11a2 2 0 01-2 2H5a2 2 0 01-2-2z"/><polyline points="9 22 9 12 15 12 15 22"/></svg>
-        ),
-        title: 'Villa Projects',
-        desc: 'Premium villa developments featuring contemporary designs, private gardens, and world-class facilities.',
-      },
-      {
-        icon: (
-          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round"><path d="M2 20h20"/><path d="M5 20V8.2a1 1 0 01.4-.8l6-4.5a1 1 0 011.2 0l6 4.5a1 1 0 01.4.8V20"/></svg>
-        ),
-        title: 'Infrastructure Planning',
-        desc: 'Comprehensive infrastructure including roads, drainage, utilities, and green spaces for sustainable living.',
-      },
-    ],
+    description: 'Conco Builders leads in land development and the creation of gated community villas, transforming raw land into luxurious, secure living spaces with top-notch amenities. Our expert team handles every aspect of development, ensuring a seamless process and exceptional quality in every project.',
+    icon: (
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0118 0z"/><circle cx="12" cy="10" r="3"/></svg>
+    )
   },
-]
-
-const process = [
-  { step: '01', title: 'Consultation', desc: 'We listen to your vision, requirements, and budget to create a tailored plan.' },
-  { step: '02', title: 'Design & Planning', desc: 'Our architects craft detailed designs and blueprints for your approval.' },
-  { step: '03', title: 'Construction', desc: 'Expert teams bring the design to life with quality materials and craftsmanship.' },
-  { step: '04', title: 'Handover', desc: 'Final inspection, quality checks, and smooth handover of your completed project.' },
+  {
+    title: 'Renovation & Remodeling',
+    description: 'Conco Builders specializes in renovation and remodeling, revitalizing homes with modern designs and superior craftsmanship. Our dedicated team ensures a seamless transformation, enhancing functionality and aesthetic appeal to meet the unique vision of each homeowner.',
+    icon: (
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round"><path d="M14.7 6.3a1 1 0 000 1.4l1.6 1.6a1 1 0 001.4 0l3.77-3.77a6 6 0 01-7.94 7.94l-6.91 6.91a2.12 2.12 0 01-3-3l6.91-6.91a6 6 0 017.94-7.94l-3.76 3.76z"/></svg>
+    )
+  },
+  {
+    title: 'Interior & Exterior Designing',
+    description: 'We offer exceptional interior and exterior designing services, creating stylish and functional spaces that reflect the unique tastes and lifestyles of our clients. Our skilled designers and artisans work together to deliver stunning results that enhance the beauty and value of every property.',
+    icon: (
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round"><path d="M12 2.69l5.66 5.66a8 8 0 11-11.31 0z"/></svg>
+    )
+  },
+  {
+    title: 'Landscaping',
+    description: 'Conco Builders provides top-tier landscaping services, transforming outdoor spaces into beautiful, functional, and sustainable environments. Our expert team designs and implements customized landscaping solutions that enhance the aesthetic appeal and value of every property.',
+    icon: (
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round"><path d="M12 19l7-7 3 3-7 7-3-3z"/><path d="M18 13l-1.5-7.5L2 2l3.5 14.5L13 18l5-5z"/><path d="M2 2l7.5 1.5"/><path d="M14 14l3 3"/></svg>
+    )
+  }
 ]
 
 export default function Services() {
   return (
     <motion.main initial={{ opacity: 0 }} animate={{ opacity: 1 }} exit={{ opacity: 0 }} transition={{ duration: 0.4 }}>
-      {/* Hero */}
+      {/* Page Hero */}
       <section className="page-hero" id="services-hero">
         <div className="page-hero__bg" />
         <div className="container page-hero__content">
-          <motion.span className="section-label" initial={{ opacity: 0, y: 20 }} animate={{ opacity: 1, y: 0 }} transition={{ delay: 0.3 }}>Our Services</motion.span>
+          <motion.span className="section-label" initial={{ opacity: 0, y: 20 }} animate={{ opacity: 1, y: 0 }} transition={{ delay: 0.3 }}>Expert Solutions</motion.span>
           <motion.h1 initial={{ opacity: 0, y: 30 }} animate={{ opacity: 1, y: 0 }} transition={{ delay: 0.5 }}>
-            Comprehensive<br /><span style={{ color: 'var(--color-accent)' }}>Construction Solutions</span>
+            Our <span style={{ color: 'var(--color-accent)' }}>Services</span>
           </motion.h1>
           <motion.p className="page-hero__subtitle" initial={{ opacity: 0, y: 20 }} animate={{ opacity: 1, y: 0 }} transition={{ delay: 0.7 }}>
-            From concept to completion, we deliver excellence at every stage
+            Quality craftsmanship and prompt delivery since 1998
           </motion.p>
         </div>
       </section>
 
-      {/* Service Sections */}
-      {servicesData.map((service, idx) => (
-        <AnimatedSection key={service.id} className={`section service-detail ${idx % 2 !== 0 ? 'service-detail--alt' : ''}`} id={`service-${service.id}`}>
-          <div className="container">
-            <div className={`service-detail__grid ${idx % 2 !== 0 ? 'service-detail__grid--reverse' : ''}`}>
-              <div className="service-detail__image-wrap">
-                <motion.div className="service-detail__image" variants={fadeUp}>
-                  <img src={service.image} alt={service.title} />
-                </motion.div>
-              </div>
-              <div className="service-detail__content">
-                <motion.span className="section-label" variants={fadeUp}>{service.label}</motion.span>
-                <motion.h2 className="section-title" variants={fadeUp}>{service.title}</motion.h2>
-                <motion.div className="divider" variants={fadeUp} />
-                <motion.p className="service-detail__desc" variants={fadeUp}>{service.description}</motion.p>
-                <div className="service-detail__features">
-                  {service.features.map((feat, i) => (
-                    <motion.div key={i} className="service-feature" variants={fadeUp}>
-                      <div className="service-feature__icon">{feat.icon}</div>
-                      <div>
-                        <h4 className="service-feature__title">{feat.title}</h4>
-                        <p className="service-feature__desc">{feat.desc}</p>
-                      </div>
-                    </motion.div>
-                  ))}
-                </div>
-              </div>
-            </div>
-          </div>
-        </AnimatedSection>
-      ))}
-
-      {/* Process */}
-      <AnimatedSection className="section services-process" id="services-process">
+      {/* Services Grid Section */}
+      <AnimatedSection className="section services-grid-section" id="services-grid">
         <div className="container">
           <div className="text-center">
-            <motion.span className="section-label" variants={fadeUp} style={{ justifyContent: 'center' }}>How We Work</motion.span>
-            <motion.h2 className="section-title" variants={fadeUp}>Our Process</motion.h2>
+            <motion.span className="section-label" variants={fadeUp} style={{ justifyContent: 'center' }}>Comprehensive Offerings</motion.span>
+            <motion.h2 className="section-title" variants={fadeUp}>Expert Construction Services</motion.h2>
             <motion.p className="section-subtitle centered" variants={fadeUp}>
-              A streamlined approach that ensures quality, transparency, and timely delivery
+              Providing end-to-end solutions for all your construction and design needs.
             </motion.p>
           </div>
-          <div className="process-grid">
-            {process.map((p, i) => (
-              <motion.div key={i} className="process-card" variants={fadeUp}>
-                <span className="process-card__step">{p.step}</span>
-                <h3 className="process-card__title">{p.title}</h3>
-                <p className="process-card__desc">{p.desc}</p>
-                {i < process.length - 1 && <div className="process-card__arrow">→</div>}
+
+          <div className="services-new-grid">
+            {servicesItems.map((service, i) => (
+              <motion.div key={i} className="service-new-card card" variants={fadeUp}>
+                <div className="service-new-card__icon">
+                  {service.icon}
+                </div>
+                <h3 className="service-new-card__title">{service.title}</h3>
+                <p className="service-new-card__desc">{service.description}</p>
+                <div className="service-new-card__action">
+                  <Link to="/contact" className="btn btn-primary btn-pulse glow-btn">
+                    Get Quote
+                    <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+                  </Link>
+                </div>
               </motion.div>
             ))}
           </div>
         </div>
       </AnimatedSection>
 
-      {/* CTA */}
-      <section className="cta-banner" id="services-cta">
-        <div className="cta-banner__bg" />
-        <div className="container cta-banner__content">
-          <motion.h2 initial={{ opacity: 0, y: 20 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }}>
-            Let's Discuss Your Project
+      {/* Additional CTA Section */}
+      <section className="services-cta-banner" id="budget-cta">
+        <div className="services-cta-banner__bg" style={{ backgroundImage: `url(${heroImg})` }}>
+          <div className="services-cta-banner__overlay" />
+        </div>
+        <div className="container services-cta-banner__content">
+          <motion.h2 
+            initial={{ opacity: 0, y: 20 }} 
+            whileInView={{ opacity: 1, y: 0 }} 
+            viewport={{ once: true }} 
+            transition={{ duration: 0.7 }}
+          >
+            Your Dream Home Within Your Budget
           </motion.h2>
-          <motion.p initial={{ opacity: 0, y: 20 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }} transition={{ delay: 0.2 }}>
-            Every great structure starts with a conversation. Tell us about your vision and get a free consultation.
+          <motion.p 
+            initial={{ opacity: 0, y: 20 }} 
+            whileInView={{ opacity: 1, y: 0 }} 
+            viewport={{ once: true }} 
+            transition={{ delay: 0.2, duration: 0.7 }}
+          >
+            Discover how to design your dream home while staying within your budget, balancing luxury and affordability seamlessly.
           </motion.p>
-          <motion.div initial={{ opacity: 0, y: 20 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }} transition={{ delay: 0.4 }} className="cta-banner__actions">
+          <motion.div 
+            initial={{ opacity: 0, y: 20 }} 
+            whileInView={{ opacity: 1, y: 0 }} 
+            viewport={{ once: true }} 
+            transition={{ delay: 0.4, duration: 0.7 }}
+            className="services-cta-banner__actions"
+          >
             <Link to="/contact" className="btn btn-primary btn-pulse">
-              Get Free Consultation
+              View Packages
               <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
             </Link>
           </motion.div>
         </div>
       </section>
+
+      {/* Why Choose Us Preview (Quick Links) */}
+      <AnimatedSection className="section services-summary" id="services-summary">
+        <div className="container">
+          <div className="services-summary__grid">
+            <div className="services-summary__content">
+              <motion.span className="section-label" variants={fadeUp}>Quality First</motion.span>
+              <motion.h2 className="section-title" variants={fadeUp}>Committed to Excellence</motion.h2>
+              <motion.p variants={fadeUp}>
+                At Conco Builders, we believe that every brick laid is a promise of quality. Our integrated approach ensures that from landscaping to interior design, your project receives the attention it deserves.
+              </motion.p>
+              <motion.div variants={fadeUp} style={{ marginTop: 'var(--space-xl)' }}>
+                <Link to="/about" className="btn btn-outline">Learn More About Us</Link>
+              </motion.div>
+            </div>
+            <div className="services-summary__image-wrap">
+              <motion.div className="services-summary__image card" variants={fadeUp}>
+                <img src={residentialImg} alt="Luxury construction service" />
+              </motion.div>
+            </div>
+          </div>
+        </div>
+      </AnimatedSection>
     </motion.main>
   )
 }

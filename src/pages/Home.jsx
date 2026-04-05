@@ -217,9 +217,9 @@ export default function Home() {
             animate={{ opacity: 1, y: 0 }}
             transition={{ delay: 0.5, duration: 0.8 }}
           >
-            Building Dreams with<br />
+            Engineering Excellence via<br />
             <span className="hero__title-accent">
-              <TypeWriter texts={['Quality & Trust', 'Expert Craftsmanship', 'Prompt Delivery']} />
+              <TypeWriter texts={['Masterful Craftsmanship', 'Architectural Vision', 'Unwavering Trust', 'Prompt Delivery']} />
             </span>
           </motion.h1>
 
